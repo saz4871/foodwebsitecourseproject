@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1024">
+    <title>JABEEN's FOOD INVENTORY</title>
+    <style>
+        /* General styles */
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden; /* Prevent scrolling to maintain video background */
+            color: #ecf0f1; /* Text color */
+            font-family: 'Arial', sans-serif; /* Font style */
+            text-align: center; /* Center text horizontally */
+        }
+
+        /* Video background styles */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Ensure video is behind other content */
+            background: #000; /* Fallback background color */
+        }
+
+        .video-background video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover; /* Ensures video covers the area without distortion */
+        }
+
+        /* Container and header styles */
+        .container {
+            padding: 0;
+            background-color: transparent;
+            margin-bottom: 60px;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7); /* Slight transparency */
+            color: #ecf0f1; /* Light text color */
+            padding: 15px 20px;
+            text-align: center;
+            font-family: 'Garamond', serif;
+            font-size: 2em; /* Adjusted for better balance */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px; /* Space between logo and text */
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Subtle shadow */
+        }
+
+        h1 {
+            font-size: 1.5em; /* Adjusted size */
+            color: #ecf0f1; /* Light color for text */
+            line-height: 1.4;
+            margin: 0; /* Remove extra spacing */
+        }
+
+        .logo {
+            max-width: 10%; /* Adjust size */
+            height: auto;
+            margin-right: 10px;
+            border-radius: 50%; /* Circular logo */
+            border: 2px solid #ecf0f1; /* Border around logo */
+        }
+
+        /* Message styles */
+        .message {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #ecf0f1; /* Light text */
+            position: absolute;
+            top: 55%; /* Adjusted vertical centering */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8); /* Slightly darker background for better contrast */
+            padding: 20px 30px; /* More padding for better spacing */
+            border-radius: 10px; /* Smooth rounded corners */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Add a shadow for depth */
+            text-align: center;
+            line-height: 1.5; /* Spacing between lines */
+        }
+    </style>
+	 
+    <script type="module">
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && event.altKey && event.code === 'KeyL') {
+                window.location.href = 'password.html';
+            }
+        });
+    </script>
+</head>
+<body>
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="/images/trailer.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="container">
+        <header>
+            <!-- Add your logo here -->
+            <img src="newlogo.png" alt="Logo" class="logo">
+            <h1>JABEEN's FOOD INVENTORY <br> (𝟒:𝟑𝟎 - 𝟐:𝟎𝟎)</h1>
+        </header>
+    </div>
+
+    <!-- Message positioned independently of the container -->
+    <div class="message">
+        IT's CLOSING TIME NOW <br>              
+        (JUST GETTING DONE WITH LAST ORDERS)
+    </div>
+</body>
+</html>

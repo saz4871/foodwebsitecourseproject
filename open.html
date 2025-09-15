@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Landing Page</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <h1>Jabeen's Food</h1>
+    <!-- <a href="#menu">Menu</a> -->
+    <!-- <a href="#testimonials">Testimonials</a> -->
+    <a href="#contact">Contact Us</a>
+  </div>
+
+  <!-- New Hero Section with Video Background -->
+<div class="video-hero-section">
+  <div class="video-overlay"></div>
+  <video autoplay muted loop playsinline class="background-video">
+    <source src="/images/trailer.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="video-content">
+    <h1>Welcome to Jabeen's Food</h1>
+    <p>Experience the ultimate blend of taste and tradition. Freshly prepared meals just for you.</p>
+    <a href="#desi-menu" class="button scroll-button">Explore Menu</a>
+  </div>
+</div>
+
+  <!-- slider -->
+
+  <div class="image-slider">
+    <div class="slider-track">
+      <img src="images/acharGosht.jpg" alt="achar gosht">
+      <img src="images/zinger.jpg" alt="zinger">
+      <img src="images/broast.png" alt="broast">
+      <img src="images/biryani.png" alt="biryani">
+      <img src="images/coke.png" alt="coca cola">
+      <img src="images/seekh.png" alt="seekh">
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="container">
+      <div class="content">
+        <h1>Order Your Favourite Foods</h1>
+        <p>Delicious and freshly cooked meals delivered to your doorstep. Experience the taste of health and freshness!
+        </p>
+        <a href="#desi-menu" class="button scroll-button">Order Now</a>
+        <div class="item-cards">
+          <div class="item-card" onclick="updateDisplay('b1.jpg', 'Cheese Burger ⭐ 4.5')">
+            <img src="b1.jpg" alt="Cheese Burger">
+            <h4>Cheese Burger</h4>
+            <p>Rs. 400</p>
+          </div>
+          <div class="item-card" onclick="updateDisplay('b2.jpeg', 'Steak Burger ⭐ 4.7')">
+            <img src="b2.jpeg" alt="Steak Burger">
+            <h4>Steak Burger</h4>
+            <p>Rs. 500</p>
+          </div>
+          <div class="item-card" onclick="updateDisplay('b3.jpeg', 'Double Cheese Burger ⭐ 4.8')">
+            <img src="b3.jpeg" alt="Double Cheese Burger">
+            <h4>Double Cheese Burger</h4>
+            <p>Rs. 550</p>
+          </div>
+        </div>
+      </div>
+      <div class="image-container">
+        <img src="b1.jpg" alt="Food" class="food-image" id="display-image">
+        <div class="label" id="display-label">Cheese Burger ⭐ 4.5</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Menu Section -->
+  <div class="menu-tabs">
+    <button class="menu-button" data-target="desi-menu">Desi Menu</button>
+    <button class="menu-button" data-target="fast-food-menu">Fast Food</button>
+    <button class="menu-button" data-target="beverages-menu">Beverages</button>
+  </div>
+  <div class="menu-navigation">
+    <section id="desi-menu" class="menu-section">
+      <h2>Desi Food Menu</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Food Item</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Chicken Biryani Single Boti - (1 Pao)</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-cbs" min="1"></td>
+            <td>PKR 150/-</td>
+            <td><button
+                onclick="addToOrder('Chicken Biryani Single Boti (1 Pao)', 150, document.getElementById('quantity-cbs').value)">Add
+                to Order</button></td>
+          </tr>
+          <tr>
+            <td>Chicken Biryani Double Boti - (1/2 kilo)</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-cbd" min="1"></td>
+            <td>PKR 300/-</td>
+            <td><button
+                onclick="addToOrder('Chicken Biryani Double Boti (1/2 kilo)', 300, document.getElementById('quantity-cbd').value)">Add
+                to Order</button></td>
+          </tr>
+          <tr>
+            <td>Beef Plao Single Boti - (1 Pao)</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-bps" min="1"></td>
+            <td>PKR 200/-</td>
+            <td><button
+                onclick="addToOrder('Beef Plao Single Boti (1 Pao)', 200, document.getElementById('quantity-bps').value)">Add
+                to Order</button></td>
+          </tr>
+          <tr>
+            <td>Beef Plao Double Boti - (1/2 kilo)</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-bpd" min="1"></td>
+            <td>PKR 420/-</td>
+            <td><button
+                onclick="addToOrder('Beef Plao Double Boti (1/2 kilo)', 420, document.getElementById('quantity-bpd').value)">Add
+                to Order</button></td>
+          </tr>
+          <tr>
+            <td>Chicken Behari Tikka - Chest</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-cbtc" min="1"></td>
+            <td>PKR 420/-</td>
+            <td><button
+                onclick="addToOrder('Chicken Behari Tikka Chest', 420, document.getElementById('quantity-cbtc').value)">Add
+                to Order</button></td>
+          </tr>
+          <tr>
+            <td>Chicken Malai Tikka - Chest</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-cmtc" min="1"></td>
+            <td>PKR 420/-</td>
+            <td><button
+                onclick="addToOrder('Chicken Malai Tikka Chest', 420, document.getElementById('quantity-cmtc').value)">Add
+                to Order</button></td>
+          </tr>
+          <tr>
+            <td>Chicken Tikka - Leg</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-ctl" min="1"></td>
+            <td>PKR 370/-</td>
+            <td><button
+                onclick="addToOrder('Chicken Tikka Leg', 370, document.getElementById('quantity-ctl').value)">Add to
+                Order</button></td>
+          </tr>
+          <tr>
+            <td>Beef Shami Kebab - (6 PCS)</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-bsk" min="1"></td>
+            <td>PKR 370/-</td>
+            <td><button
+                onclick="addToOrder('Beef Shami Kebab (6 PCS)', 370, document.getElementById('quantity-bsk').value)">Add
+                to Order</button></td>
+          </tr>
+          <tr>
+            <td>Beef Shami Kebab - (12 PCS)</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-bsk" min="1"></td>
+            <td>PKR 650/-</td>
+            <td><button
+                onclick="addToOrder('Beef Shami Kebab (12 PCS)', 650, document.getElementById('quantity-bsk').value)">Add
+                to Order</button></td>
+          </tr>
+          <tr>
+            <td>Beef Boti Roll</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-bbr" min="1"></td>
+            <td>PKR 180/-</td>
+            <td><button onclick="addToOrder('Beef Boti Roll', 180, document.getElementById('quantity-bbr').value)">Add
+                to Order</button></td>
+          </tr>
+          <tr>
+            <td>Malai Boti Roll</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-mbr" min="1"></td>
+            <td>PKR 180/-</td>
+            <td><button onclick="addToOrder('Malai Boti Roll', 180, document.getElementById('quantity-mbr').value)">Add
+                to Order</button></td>
+          </tr>
+          <tr>
+            <td>Chicken Mayo Roll</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-cmr" min="1"></td>
+            <td>PKR 180/-</td>
+            <td><button
+                onclick="addToOrder('Chicken Mayo Roll', 180, document.getElementById('quantity-cmr').value)">Add to
+                Order</button></td>
+          </tr>
+          <tr>
+            <td>Seekh Kebab Roll</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-sk" min="1"></td>
+            <td>PKR 170/-</td>
+            <td><button onclick="addToOrder('Seekh Kebab Roll', 170, document.getElementById('quantity-sk').value)">Add
+                to Order</button></td>
+          </tr>
+          <!-- Add more rows for additional desi food items -->
+        </tbody>
+      </table>
+    </section>
+
+    <section id="fast-food-menu" class="menu-section">
+      <h2>Fast Food Menu</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Food Item</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Zinger Burger</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-zb" min="1"></td>
+            <td>PKR 300/-</td>
+            <td><button onclick="addToOrder('Zinger Burger', 300, document.getElementById('quantity-zb').value)">Add to
+                Order</button></td>
+          </tr>
+          <tr>
+            <td>Double Zinger</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-dz" min="1"></td>
+            <td>PKR 470/-</td>
+            <td><button onclick="addToOrder('Double Zinger', 470, document.getElementById('quantity-dz').value)">Add to
+                Order</button></td>
+          </tr>
+          <tr>
+            <td>Chicken Sandwich</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-cs" min="1"></td>
+            <td>PKR 300/-</td>
+            <td><button onclick="addToOrder('Chicken Sandwich', 300, document.getElementById('quantity-cs').value)">Add
+                to Order</button></td>
+          </tr>
+          <tr>
+            <td>Club Sandwich</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-cls" min="1"></td>
+            <td>PKR 320/-</td>
+            <td><button onclick="addToOrder('Club Sandwich', 320, document.getElementById('quantity-cls').value)">Add to
+                Order</button></td>
+          </tr>
+          <tr>
+            <td>Broast Chest Piece</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-bcp" min="1"></td>
+            <td>PKR 450/-</td>
+            <td><button
+                onclick="addToOrder('Broast Chest Piece', 450, document.getElementById('quantity-bcp').value)">Add to
+                Order</button></td>
+          </tr>
+          <tr>
+            <td>Broast Leg Piece</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-blp" min="1"></td>
+            <td>PKR 400/-</td>
+            <td><button onclick="addToOrder('Broast Leg Piece', 450, document.getElementById('quantity-blp').value)">Add
+                to Order</button></td>
+          </tr>
+          <tr>
+            <td>Zingeratha</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-zingeratha" min="1"></td>
+            <td>PKR 220/-</td>
+            <td><button
+                onclick="addToOrder('Zingeratha', 220, document.getElementById('quantity-zingeratha').value)">Add to
+                Order</button></td>
+          </tr>
+          <tr>
+            <td>Nuggets - (6 PCS)</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-nuggets6" min="1"></td>
+            <td>PKR 300/-</td>
+            <td><button
+                onclick="addToOrder('Nuggets (6 PCS)', 300, document.getElementById('quantity-nuggets6').value)">Add to
+                Order</button></td>
+          </tr>
+          <tr>
+            <td>Nuggets - (12 PCS)</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-nuggets12" min="1"></td>
+            <td>PKR 550/-</td>
+            <td><button
+                onclick="addToOrder('Nuggets (12 PCS)', 300, document.getElementById('quantity-nuggets12').value)">Add
+                to Order</button></td>
+          </tr>
+          <tr>
+            <td>Fries</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-fries" min="1"></td>
+            <td>PKR 100/-</td>
+            <td><button onclick="addToOrder('Fries', 100, document.getElementById('quantity-fries').value)">Add to
+                Order</button></td>
+          </tr>
+          <tr>
+            <td>Mayo Fries</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-mfries" min="1"></td>
+            <td>PKR 120/-</td>
+            <td><button onclick="addToOrder('Mayo Fries', 120, document.getElementById('quantity-mfries').value)">Add to
+                Order</button></td>
+          </tr>
+          <tr>
+            <td>Pizza Fries - Small</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-pfs" min="1"></td>
+            <td>PKR 370/-</td>
+            <td><button
+                onclick="addToOrder('Pizza Fries - Small', 370, document.getElementById('quantity-pfs').value)">Add to
+                Order</button></td>
+          </tr>
+          <tr>
+            <td>Pizza Fries - Large</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-pfl" min="1"></td>
+            <td>PKR 670/-</td>
+            <td><button
+                onclick="addToOrder('Pizza Fries - Large', 670, document.getElementById('quantity-pfl').value)">Add to
+                Order</button></td>
+          </tr>
+          <!-- Add more rows for additional fast food items -->
+        </tbody>
+      </table>
+    </section>
+
+    <section id="beverages-menu" class="menu-section">
+      <h2>Beverages</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Beverage</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cold Drink - (1.5 Ltr)</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-cd1/2" min="1"></td>
+            <td>PKR 180/-</td>
+            <td><button
+                onclick="addToOrder('Cold Drink - (1.5 Ltr)', 180, document.getElementById('quantity-cd1/2').value)">Add
+                to Order</button></td>
+          </tr>
+          <tr>
+            <td>Cold Drink - (1 Ltr)</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-cd1" min="1"></td>
+            <td>PKR 220/-</td>
+            <td><button
+                onclick="addToOrder('Cold Drink - (1 Ltr)', 220, document.getElementById('quantity-cd1').value)">Add to
+                Order</button></td>
+          </tr>
+          <tr>
+            <td>Cold Drink - (350ml)</td>
+            <td class="menu-item"><input type="number" value="1" id="quantity-cd350ml" min="1"></td>
+            <td>PKR 70/-</td>
+            <td><button
+                onclick="addToOrder('Cold Drink - (350ml)', 70, document.getElementById('quantity-cd350ml').value)">Add
+                to Order</button></td>
+          </tr>
+          <!-- Add more rows for additional beverages -->
+        </tbody>
+      </table>
+    </section>
+  </div>
+  <section id="order" class="cart-section">
+    <h2>Your Order</h2>
+    <div class="order-summary" id="order-items">
+      <p>No items in your order yet.</p>
+    </div>
+    <div class="error-message" id="error-message"></div>
+    <div class="confirmation-options">
+      <button id="confirm-order-btn" onclick="confirmOrder()">Confirm Order</button>
+    </div>
+  </section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="testimonials-section">
+  <h2>What Our Customers Say</h2>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <!-- Testimonial Slides -->
+      <div class="swiper-slide testimonial">
+        <p>"The best food I've ever tasted! Fresh and delivered on time. Highly recommended!"</p>
+        <strong>- Sarah Ahmed</strong>
+      </div>
+      <div class="swiper-slide testimonial">
+        <p>"Excellent service and delicious meals. Jabeen's Food is my go-to for family dinners."</p>
+        <strong>- Ali Khan</strong>
+      </div>
+      <div class="swiper-slide testimonial">
+        <p>"Affordable prices and high-quality meals. I'm impressed!"</p>
+        <strong>- Maria Sheikh</strong>
+      </div>
+      <div class="swiper-slide testimonial">
+        <p>"The best food I've ever tasted! Fresh and delivered on time. Highly recommended!"</p>
+        <strong>- Sarah Ahmed</strong>
+      </div>
+      <div class="swiper-slide testimonial">
+        <p>"Excellent service and delicious meals. Jabeen's Food is my go-to for family dinners."</p>
+        <strong>- Ali Khan</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+    <p>Have questions or feedback? We'd love to hear from you!</p><br>
+    <form action="submit_contact.php" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required><br><br>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required></textarea><br><br>
+
+      <button type="submit">Submit</button>
+  </form>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Jabeen's Food. All Rights Reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <!-- ScrollTrigger plugin CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
+
+
+<!-- Swiper JavaScript -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && event.altKey && event.code === 'KeyL') {
+                window.location.href = 'password.html';
+            }
+        });
+  </script>
+  <script>
+    let orderItems = [];
+    let totalBill = 0;
+
+    function addToOrder(foodItem, price, quantity) {
+      let itemTotal = price * quantity;
+      orderItems.push({ foodItem, price, quantity, itemTotal });
+      updateOrderSummary();
+    }
+
+    function updateOrderSummary() {
+      // Update the order summary with the items
+      let orderList = document.getElementById("order-items");
+      orderList.innerHTML = ''; // Clear current items
+      totalBill = 0;
+      
+      orderItems.forEach(item => {
+        let li = document.createElement('li');
+        li.textContent = `${item.foodItem} x ${item.quantity} = ${item.itemTotal} PKR`;
+        orderList.appendChild(li);
+        totalBill += item.itemTotal;
+      });
+
+      // Include delivery charges in total bill
+      const deliveryCharge = 50;
+      document.getElementById("delivery-charge").textContent = deliveryCharge;
+      document.getElementById("total-bill").textContent = totalBill + deliveryCharge;
+    }
+
+    function confirmOrder() {
+      const deliveryCharge = 50;
+      let orderText = 'Your Order Summary:\n\n';
+      orderItems.forEach(item => {
+        orderText += `${item.foodItem} x ${item.quantity} = ${item.itemTotal} PKR\n`;
+      });
+      orderText += `\nDelivery Charge: ${deliveryCharge} PKR\n`;
+      orderText += `Total Bill: ${totalBill + deliveryCharge} PKR\n`;
+
+      // WhatsApp URL to send the order
+      const whatsappNumber = '923122536604'; // Replace with your business WhatsApp number
+      const message = encodeURIComponent(orderText);
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+      // Redirect to WhatsApp
+      window.open(whatsappUrl, '_blank');
+    }
+  </script>
+
+</body>
+
+</html>

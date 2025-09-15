@@ -1,0 +1,631 @@
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+.item-card h4 {
+  margin: 0.5rem 0;
+}
+
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      background-color: #1f1f1f;
+      color: #ffffff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar h1 {
+      font-size: 1.5rem;
+    }
+
+    .navbar a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1rem;
+      background-color: #ff5622;
+      padding: 12px 25px;
+      border-radius: 40px;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar a:hover {
+      transform: scale(1.05) !important;
+    }
+
+    .video-hero-section {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    
+    .background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4); /* Adjust darkness */
+      z-index: 0;
+    }
+    
+    .video-content {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .video-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .video-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .video-cta {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background-color: #ff5722;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    
+    .video-cta:hover {
+      background-color: #e64a19;
+    }
+
+    .hero-section {
+      position: relative;
+      height: calc(100vw * 9 / 16); /* Maintain 16:9 aspect ratio */
+      max-height: 100vh; /* Ensure it doesn’t exceed the screen height */
+      background: url('bg.png') no-repeat center center/cover;
+      display: flex;
+      align-items: left;
+      justify-content: left;
+      overflow: hidden; /* Hide overflow to prevent it from affecting other sections */
+    }
+    
+    /* Content within the Hero Section */
+    .hero-section .container {
+      position: relative;
+      z-index: 1; /* Ensure content is above the background */
+    }
+    
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(18, 18, 18, 0.7); /* Optional: Add a dark overlay for better contrast */
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      padding-top: 80px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .content {
+      max-width: 600px;
+    }
+
+    .content h1 {
+      font-size: 3rem;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .content p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .order-summary {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 16px 30px;
+      font-size: 1rem;
+      background-color: #ff5722;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #db3907;
+    }
+
+    .image-container {
+      position: relative;
+    }
+
+    .food-image {
+      width: 500px; /* Ensures consistent size */
+      height: 500px; /* Ensures consistent size */
+      object-fit: cover; /* Avoids image stretching */
+      border-radius: 50%; /* Keeps the rounded design */
+    }
+
+    .label {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background-color: #ff5722;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .item-cards {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap; /* Allow wrapping for responsiveness */
+      flex: 1;
+      margin-top: 20px;
+    }
+    
+    .item-card {
+      text-align: center;
+      padding: 10px;
+      border-radius: 10px;
+      background: #1f1f1f;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+      flex: 1 1 calc(20% - 15px); /* Smaller flexible size */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      max-width: 180px; /* Reduced maximum width */
+      min-width: 120px; /* Reduced minimum width */
+    }    
+
+    .item-card:hover {
+      transform: scale(1.05) !important;
+    }
+    
+    .item-card img {
+      width: 100%; /* Fill the card's width */
+      height: 150px; /* Set a fixed height for the image */
+      object-fit: cover; /* Ensure the image covers the space */
+      border-radius: 8px 8px 0 0; /* Round only the top corners */
+    }
+    
+    .item-card h4 {
+      margin: 10px 0 5px;
+      font-size: 1.2em;
+      color: #e0e0e0;
+    }
+    
+    .item-card p {
+      margin: 0;
+      font-size: 1em;
+      color: #bbbbbb;
+    }
+    
+    .item-card.highlight {
+      transform: scale(1.1); /* Slightly larger size */
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.7);
+    }
+    
+    /* slider */
+
+   /* Image Slider */
+.image-slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 140px; /* Fixed height for slider */
+  display: flex;
+  align-items: center; /* Center images vertically */
+  background-color: #252525; /* Background color */
+}
+
+.slider-track {
+  display: flex;
+  gap: 40px; /* Space between images */
+}
+
+.slider-track img {
+  height: 100px; /* Fixed circular image size */
+  width: 100px; /* Match height for circle */
+  border-radius: 50%; /* Make images circular */
+  object-fit: cover; /* Ensure images fit the circle nicely */
+  border: 3px solid #222222; /* Optional border for images */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
+}
+
+/* Keyframes for infinite scroll */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-90%);
+  }
+}
+    /* menu section */
+    /* Menu Tab Buttons */
+.menu-tabs {
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.menu-button {
+  display: inline-block;
+      padding: 16px 30px;
+      font-size: 1rem;
+      background-color: #ff5722;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+}
+
+.menu-button:hover {
+  background-color: #db3907;
+}
+
+/* Menu Container */
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-section {
+  display: none; /* Hide all sections by default */
+  width: 90%;
+  margin: 0 auto;
+}
+
+.menu-section.active {
+  display: block; /* Show active section */
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+}
+
+table th,
+table td {
+  padding: 10px;
+  border: 1px solid #333333;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+table th {
+  background-color: #252525;
+  font-weight: bold;
+}
+
+button {
+  background-color: #ff5622;
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #db3907;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .menu-section {
+    width: 100%;
+  }
+
+  table th,
+  table td {
+    font-size: 0.8rem;
+  }
+}
+
+/* Cart Section */
+.cart-section {
+  padding: 2rem;
+  background-color: #f9f9f9; /* Softer background for contrast */
+  border: 1px solid #ddd;
+  border-radius: 12px; /* Slightly larger border-radius for a smoother look */
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6); /* Slightly deeper shadow for more emphasis */
+  max-width: 600px; /* Limit width to avoid stretching on large screens */
+  margin-left: auto;
+  margin-right: auto; /* Center horizontally */
+  text-align: center; /* Center align text */
+}
+
+/* Heading */
+.cart-section h2 {
+  font-size: 1.8rem; /* Larger heading for prominence */
+  margin-bottom: 1.5rem;
+  color: #ff5622; /* Bright color for focus */
+  font-weight: 700;
+}
+
+/* Paragraph */
+.cart-section p {
+  color: #000000; /* Subtle color for the text */
+  font-size: 1.1rem; /* Slightly larger font size for readability */
+  line-height: 1.6; /* Increase line height for better spacing */
+  margin-bottom: 1rem; /* Add spacing after the paragraph */
+}
+
+/* Cart Items Container (optional) */
+.cart-items {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  gap: 1rem; /* Add spacing between items */
+}
+
+/* Button */
+.cart-section button {
+  background-color: #ff5622;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cart-section button:hover {
+  background-color: #db3907; /* Slightly darker shade on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cart-section {
+    padding: 1.5rem;
+    max-width: 90%; /* Allow it to take more space on smaller screens */
+  }
+
+  .cart-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .cart-section p {
+    font-size: 1rem;
+  }
+
+  .cart-section button {
+    width: 100%; /* Make the button take full width on smaller screens */
+  }
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ff5722;
+  color: #fff;
+  padding: 50px 20px;
+  width: 100%;
+  position: relative; /* Add relative positioning to place the buttons correctly */
+}
+
+.testimonials-section h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.testimonial {
+  background-color: #252525;
+  color: #e0e0e0;
+  padding: 20px;
+  margin: 10px auto;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+  max-width: 600px;
+}
+
+.testimonial h4 {
+  font-size: 1.2rem;
+  margin-top: 0;
+}
+
+.swiper-container {
+  width: 100%; /* Make the slider take up full width */
+  max-width: 90%; /* Remove any max width limit */
+  height: 140px; /* Set a fixed height for the slider, same as before */
+  margin-bottom: 20px; /* Space between slider and navigation buttons */
+  overflow: hidden;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: #fff;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  /* Ensure the testimonials are the same size as before */
+  width: 300px; /* Set fixed width for each testimonial */
+}
+
+.testimonial p {
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.testimonial strong {
+  font-weight: bold;
+  color: #ff5722;
+}
+
+/* Navigation buttons */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ff5722; /* Keep the arrow color */
+  background: none; /* Remove any background color */
+  border: none; /* Remove border if present */
+  box-shadow: none; /* Remove shadow if applied */
+  border-radius: 0; /* Reset border-radius */
+  padding: 10px; /* Maintain padding */
+  font-size: 1.5rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10; /* Ensure buttons are above slider */
+}
+
+.swiper-button-next {
+  right: 20px;
+}
+
+.swiper-button-prev {
+  left: 20px;
+}
+
+/* Hover effect for buttons */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: none; /* Keep hover clean */
+  color: #000000; /* Accent hover color */
+}
+
+
+/* Contact Section */
+.contact-section {
+  margin: 50px auto;
+  padding: 20px;
+  background: #252525; /* Dark background */
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  max-width: 600px;
+}
+
+.contact-section h2 {
+  text-align: center;
+  color: #ff5722;
+  margin-bottom: 20px;
+}
+
+.contact-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.contact-section input,
+.contact-section textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #444; /* Darker border */
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #1f1f1f; /* Input field background */
+  color: #e0e0e0; /* Text color */
+}
+
+.contact-section input::placeholder,
+.contact-section textarea::placeholder {
+  color: #777; /* Placeholder text */
+}
+
+.contact-section button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #ff5722;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-section button:hover {
+  background-color: #e64a19;
+}
+
+/* Footer */
+footer {
+  background-color: #1f1f1f; /* Dark footer background */
+  color: #e0e0e0;
+  padding: 20px;
+  text-align: center;
+}
+
+footer p {
+  margin: 10px 0;
+}
+
+footer .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+footer .social-icons a {
+  color: #e0e0e0; /* Icon color consistent with text */
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+footer .social-icons a:hover {
+  color: #ff5722; /* Accent color for hover */
+}
